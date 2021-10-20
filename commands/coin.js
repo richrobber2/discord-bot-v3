@@ -1,6 +1,8 @@
 const discord = require ("discord.js");
 const prefix = require('../config/config.json')
-
+module.exports = {
+    name: 'coin'
+}
 module.exports.run = (client, message, args) =>{
     function flip(){
         var rand = ['Heads!', 'Tails!'];

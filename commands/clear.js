@@ -1,6 +1,8 @@
 const discord = require ("discord.js");
 const prefix = require('../config/config.json')
-
+module.exports = {
+    name: 'clear'
+}
 module.exports.run = (client, message, args) =>{
     const {member, mentions } = message
     const tag = `<@${member.id}>`

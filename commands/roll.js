@@ -1,7 +1,9 @@
 const discord = require ("discord.js");
 const prefix = require('../config/config.json')
 const throwdice = () => ~~(Math.random() * 6) + 1;
-
+module.exports = {
+    name: 'roll'
+}
 module.exports.run = (client, message, args) =>{
     message.channel.send("The Number is "+"``"+throwdice()+"``")
 }

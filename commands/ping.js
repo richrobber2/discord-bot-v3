@@ -1,6 +1,7 @@
 const prefix = require('../config/config.json')
 const { MessageEmbed } = require("discord.js");
 module.exports = {
+    name: 'ping',
     run: async (client, message, args, Discord) => {
         const ping = new MessageEmbed()
             .setColor('RANDOM')

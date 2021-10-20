@@ -11,6 +11,7 @@ let slashFiles = []
 let slashCount = []
 
 const Discord = require('discord.js')
+const { POINT_CONVERSION_COMPRESSED } = require('constants')
 Discord.TextChannel.prototype.sendEmbed = function(embed) {
     this.send({
         embeds: [embed]
@@ -32,6 +33,18 @@ class Handler {
                 }) // res.ForEach() End
             }) // forEach(aliases =>) End
         }) // FileManager Function End
+        FileManager(HOME + '/Commands', function(err, res) {
+            res.forEach(file => {
+                if (fs.statSync(file).isDirectory()) return;
+                const cmd = require(file)
+                client.commands.set(cmd.details.name.toString().toLowerCase(), cmd)
+                commandFiles.push(file)
+                if (cmd.aliases && Array.isArray(cmd.aliases)) cmd.aliases.forEach(alias => {
+                    client.aliases.set(alias.toString().toLowerCase(), cmd.name)
+                    aliasesCount.push(1)
+                }) // res.ForEach() End
+            }) // forEach(aliases =>) End
+        })
     } // Command Handler End.
 
     // EVENT HANDLER

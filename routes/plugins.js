@@ -2,22 +2,21 @@ const express = require('express');
 const router = express.Router();
 const discord = require('../bot')
 const { ensureAuthenticated, forwardAuthenticated } = require('../auth/auth');
-var commands = require("../commands");
 const fs = require("fs");
 const fileUpload = require('express-fileupload');
 const jsonfile = require('jsonfile')
 json = require('json-update');
 const themes = "./config/theme.json"
+const handle = require("../HOME/Classes/Handler.js")
 
 router.get('/plugins', ensureAuthenticated,(req, res) => {
   var theme = jsonfile.readFileSync(themes);
     const commandsToggle = jsonfile.readFileSync('./config/settings.json');
-    fs.readdir("./commands/" && "../HOME/CMDFiles/Commands", (err, files) => {
+    fs.readdir("../HOME/CMDFiles/Commands/Basic", (err, files) => {
     res.render('home/plugins',{
         profile:req.user,
         client:discord.client,
-        commands:commands,
-        commandName:files,
+        commandName:discord.client.commands,
         commandsToggle:commandsToggle,
         theme:theme
     })

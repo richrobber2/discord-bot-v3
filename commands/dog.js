@@ -1,7 +1,9 @@
 const discord = require ("discord.js");
 const prefix = require('../config/config.json')
 const fetch = require("node-fetch");
-
+module.exports = {
+    name: 'dog'
+}
 module.exports.run = (client, message, args) =>{
     let uri = "https://dog.ceo/api/breeds/image/random";
     fetch(uri)

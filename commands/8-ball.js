@@ -15,7 +15,9 @@ module.exports.run = (client, message, args) =>{
         });
     }
 }
-
+module.exports = {
+    name: '8-Ball'
+}
 module.exports.details = {
     name: '8-Ball',
     author: 'LachlanDev#8014',

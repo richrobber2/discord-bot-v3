@@ -1,7 +1,9 @@
 const discord = require ("discord.js");
 const prefix = require('../config/config.json')
 const fetch = require("node-fetch");
-
+module.exports = {
+    name: 'cat'
+}
 module.exports.run = (client, message, args) =>{
     let uri = "https://aws.random.cat/meow";
     fetch(uri)

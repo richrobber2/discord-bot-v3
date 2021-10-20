@@ -21,12 +21,12 @@ partials: ["CHANNEL"]
 })
 global.HOME = __dirname
 client.config = require(`${HOME}/config/config.json`)
-require('figlet')("DjS", (err, data) => console.log(data))
+require('figlet')("loading", (err, data) => console.log(data))
 client.login(process.env.token || client.config.token)
 exports.client = client
 client.commands = new Collection()
 client.aliases = new Collection()
-const { Handler } = require(`${HOME}/Home/Classes/Handler`)
+const { Handler, commandFiles } = require(`${HOME}/Home/Classes/Handler`)
 Handler.loadCommands(client)    // COMMAND HANDLER
 Handler.loadEvents(client)     // EVENT HANDLER
 Handler.loadButtons(client)     // BUTTON HANDLER
@@ -48,21 +48,7 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
-client.commands = new Enmap();
-
-
-fs.readdir("./commands/", (err, files) => {
-  console.log(chalk.red('Loading Commands...'))
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    if (settings.includes(commandName)) return;
-    console.log(chalk.green(`[+] ${commandName}`));
-    client.commands.set(commandName, props);
-  });
-});
+client.commands = new Enmap()
 
 client.on("ready", () => {
   client.user.setActivity('Set Activity', { type: 'WATCHING' });

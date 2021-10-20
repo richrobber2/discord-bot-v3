@@ -1,3 +1,4 @@
+const prefix = require('../../../../config/config.json')
 module.exports = {
     name: 'reboot',
     ownerOnly: true,
@@ -18,4 +19,11 @@ module.exports = {
 
 
     }
+}
+module.exports.details = {
+    name:'reboot',
+    author:'Sarah-SAS#4206',
+    icon:'https://cdn.discordapp.com/avatars/633668381954015235/9b0672791e6f9d3d2319b37bc861b5e5',
+    description:'to be added',
+    usage:`${prefix.prefix}reboot`
 }

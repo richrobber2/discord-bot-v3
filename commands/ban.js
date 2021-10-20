@@ -31,7 +31,9 @@ module.exports.run = (client, message, args) =>{
             message.channel.send(`${tag} Sorry I dont have permission to Ban Members!`)
         }
 }
-
+module.exports = {
+    name: 'Ban'
+}
 module.exports.details = {
     name:'Ban',
     author:'LachlanDev#8014',
