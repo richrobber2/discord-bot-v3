@@ -1,2 +1,5 @@
-/config
 /node_modules
+config/config.json
+config/settings.json
+config/theme.json
+config/version.json
