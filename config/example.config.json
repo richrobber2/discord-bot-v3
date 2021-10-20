@@ -1,0 +1,9 @@
+{
+    "clientID":"search up how to get client id discord",
+    "clientSecret":"search up how to get clientSecret discord",
+    "callbackURL":"http://localhost:3000/login/api",
+    "Admin":["your id search up how to get user id discord online"],
+    "token":"your token goes here",
+    "prefix":"!",
+    "port":"3000"
+}
